@@ -18,7 +18,7 @@ background-color: var(--dutch-white);
 
 /* ---- text ----*/
 .quote{
-        font-size: 2em;
+        font-size: 1.7em;
         font-style:italic;
         padding: 1em 1em;
         text-align: center;
@@ -33,7 +33,7 @@ background-color: var(--dutch-white);
 }
 
 h1{
-    font-size: 5em;
+    font-size: 4em;
     color:var(--blood-red);
     text-align: center;
     font-weight: 400;
@@ -52,29 +52,31 @@ h1{
 .container-lg{  
     background-color:rgb(255,255,255);
     overflow: auto;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .quote_container{
-    overflow: auto;
-    margin-left: 4em;
-    margin-right: 4em;   
+    overflow: auto;   
 }
 
 .col-lg-6, .col-lg-6{
     border: 0px solid red;
 }
+
 .row{
     border: 0px solid blue;
     padding: 1em 0 1em 0;
 }
 
 .part-img{
-    max-width: 75%;
+    max-width: 100%;
     margin: auto;
     display: block;
 }   
 
+.banner_adjust{
+    margin-top: 3.2em;
+}
 
 /* --------- */
 
@@ -82,8 +84,8 @@ h1{
 
 .navbar{
             --dutch-white: rgb(250, 237, 202);
-            background-color: var(--dutch-white);
-            border-bottom: 1px solid white;
+            background-color: var(--chamoisee);
+            border-bottom: 2px solid white;
         }
         
         .nav-item:hover{
@@ -93,7 +95,7 @@ h1{
         
         .nav-link{
             font-size: 1.5em;
-            color:var(--blood-red);
+            color:rgb(250,250,250);
         }
         
         .nav-link:hover{
@@ -110,6 +112,17 @@ h1{
 
 
 /* --------- */
+
+.form_container{
+    background-color:var(--dutch-white);
+    overflow: auto;
+    padding: 1em;
+    margin: 3em;
+}
+
+.contact{
+    background-color:var(--charcol);
+}
 
 
 .footer-content{
