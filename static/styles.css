@@ -1,0 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,500&display=swap');
+
+:root{   
+ --dutch-white: rgb(250, 237, 202);
+ --charcol: rgb(54, 70, 82);
+ --chamoisee: rgb(165, 117, 72);
+ --black-bean: rgb(43, 5, 4);
+ --blood-red: rgb(96, 23, 0);
+}
+
+body{
+font-family: 'Lora', sans-serif;
+font-size: 100%;
+background-color: var(--dutch-white);
+}
+
+
+/* ---- text ----*/
+.quote{
+        font-size: 1.7em;
+        font-style:italic;
+        padding: 1em 1em;
+        text-align: center;
+        background-color: var(--chamoisee);
+        color: rgb(255,255,255);
+}
+
+.body-text, label{
+    font-size: 1.5em;
+    text-align: center;
+    color:var(--blood-red);
+}
+
+.contact-text, label{
+    font-size: 1.5em;
+    text-align: left;
+    font-weight: 400;
+    color:var(--blood-red);
+}
+
+h1{
+    font-size: 3.5em;
+    color:var(--blood-red);
+    text-align: center;
+    font-weight: 500;
+    margin: 0.3em;
+}
+
+h2{
+    font-size: 2em;
+    color:var(--blood-red);
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 0.8em;
+}
+/* --------- */
+
+
+/* ---- layout ----*/
+
+.container-fluid{
+    border: 0px solid blue;
+    padding: 0;
+}
+
+.container-lg{  
+    background-color:rgb(255,255,255);
+    margin-bottom: 1em;
+}
+
+.container-lg2{
+    background-color:rgb(255,255,255);
+    overflow: auto;
+    margin-bottom: 1em;
+}
+
+.quote_container{
+    overflow: auto;   
+}
+
+.part-img{
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}   
+
+.banner_adjust{
+    margin-top: 3.2em;
+}
+
+/* --------- */
+
+/* ---- navigation ----*/
+
+.navbar{
+            --dutch-white: rgb(250, 237, 202);
+            background-color: var(--chamoisee);
+            border-bottom: 2px solid white;
+        }
+        
+        .nav-item:hover{
+            background-color:var(--blood-red);
+            color: var(--black-bean);    
+        }
+        
+        .nav-link{
+            font-size: 1.5em;
+            color:rgb(250,250,250);
+        }
+        
+        .nav-link:hover{
+        color:rgb(250,250,250);
+        }   
+        
+        .btn-outline{
+            padding: 0 0.5em;    
+        }
+        
+        .btn-outline:hover{
+        background-color:var(--blood-red);
+        }
+
+
+/* --------- */
+
+.form-container{
+    background-color:var(--dutch-white);
+    padding: 1em 2em;
+   
+}
+
+.contact{
+    background-color:var(--charcol);
+}
+
+
+.footer-content{
+    background-color: var(--chamoisee);
+    text-align: center;
+    padding: 0.5em 0 0.5em 0;
+    color:white;
+}
+
+.footer-content p:first-child{
+    font-weight: 600;
+    font-size: 1.5em;
+}

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+
+{% block title%}
+Welcome Guitar Group
+{% endblock %}
+
+{% block banner%}
+static/images/banner.jpg
+{% endblock %}
+
+{% block content%}
+<h1> Welcome </h1>
+
+<div class=quote_container>
+<p class="quote"> “The beautiful thing about learning is nobody can take it away from you.” </p>
+</div>
+
+<div class="container-lg">
+    <div class="row align-items-center px-5 py-3">
+        <div class="col-lg-6">
+            <img class="img-fluid part-img" src="static/images/focus-overshoulder.jpg">
+        </div>
+        <div class="col-lg-6">
+            <p class="body-text"> Kia Ora and welcome to Guitar Group. This is the place you want to be if you are a lover music and learning, like us. We are here to help you develop your own taste and identity, and grow in what you love the most. <br> <br> <em> Music learning is a valuable skill in your life so make it count by learning with us!</em> </p>
+        </div>
+    </div>
+</div>
+
+<h1> About Us </h1>
+
+<div class=quote_container>
+<p class="quote"> "Every guitarist has something unique about their playing. They just have to identify and develop it." </p>
+</div>
+
+<div class="container-lg">
+    <div class="row align-items-center px-5 py-3">
+        <div class="col-lg-6">
+            <p class="body-text"> Based in Samuel Marsden Collegiate School, Guitar Group is a music club that is open for all students. Whether you are a beginner or an experienced player, you can find a place for yourself amongst our lovely group. <br> <br> Over the course of the year, we help you develop your skills so that you can perform at events such as showcase and cultural awards. </p>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid part-img" src="static/images/olive_fret.jpg">
+        </div>
+    </div>
+</div>
+
+<h1> Want to Know More? </h1>
+
+<div class=quote_container>
+<p class="quote"> “I just go wherever the guitar takes me.” </p>
+</div>
+
+<div class="container-lg">
+<div class="row align-items-center px-5 py-3">
+        <div class="col-lg-6">
+        <h2> Reach Us </h2>
+        <p class= "contact-text"> Our Socials: <br> <em> @guitargroup2023 <br> @samuelmarsdenschool </em> </p>
+        <p class= "contact-text"> Email Us: <br> <em> guitargroup@marsden.school.nz <br> musicgroups@marsden.school.nz </em> </p>
+        </div>
+
+    <div class="col-lg-6">
+    <form id="loginform" class="form-container" action="">
+                <div class="mb-3 mt-3">
+                    <h2> Log in </h2>
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+                <div class="form-check mb-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+</div>
+</div>
+{% endblock %}
