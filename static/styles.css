@@ -54,6 +54,15 @@ h2{
     font-weight: 500;
     margin-bottom: 0.8em;
 }
+
+h3{
+    font-size: 2.5em;
+    color:var(--blood-red);
+    text-align: center;
+    font-weight: 500;
+    margin: 0.3em;
+}
+
 /* --------- */
 
 
@@ -66,17 +75,16 @@ h2{
 
 .container-lg{  
     background-color:rgb(255,255,255);
-    margin-bottom: 1em;
+    overflow: auto;
 }
 
 .container-lg2{
     background-color:rgb(255,255,255);
     overflow: auto;
-    margin-bottom: 1em;
 }
 
 .quote_container{
-    overflow: auto;   
+    overflow: auto;
 }
 
 .part-img{
@@ -124,10 +132,24 @@ h2{
 
 /* --------- */
 
+/* ---- carousel ----*/
+
+.carousel-container{
+    max-width: 900px;
+    display:block;
+}
+
+.center{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------- */
+
 .form-container{
     background-color:var(--dutch-white);
     padding: 1em 2em;
-   
 }
 
 .contact{
@@ -140,6 +162,7 @@ h2{
     text-align: center;
     padding: 0.5em 0 0.5em 0;
     color:white;
+    margin-top: 1em;
 }
 
 .footer-content p:first-child{
