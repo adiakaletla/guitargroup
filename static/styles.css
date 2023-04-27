@@ -156,6 +156,11 @@ h3{
     background-color:var(--charcol);
 }
 
+.schedule-table{
+    text-align: center;
+    margin: 3em;
+}
+
 
 .footer-content{
     background-color: var(--chamoisee);
