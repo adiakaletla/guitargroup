@@ -156,11 +156,23 @@ h3{
     background-color:var(--charcol);
 }
 
+/* ---- schedule page ----*/
+
 .schedule-table{
     text-align: center;
-    margin: 3em;
+    margin: 2em;
+    background-color: var(--dutch-white);
+    font-size: 1.5em;
+}
+.table{
+    --bs-table-border-color: var(--blood-red);
 }
 
+td,th{
+    color: var(--blood-red);
+}
+
+/* --------- */
 
 .footer-content{
     background-color: var(--chamoisee);

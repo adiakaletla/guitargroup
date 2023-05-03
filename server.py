@@ -18,10 +18,5 @@ def schedule():
     return render_template("schedule.html")
 
 
-@app.route('/sheetmusic')
-def sheetmusic():
-    return render_template("sheetmusic.html")
-
-
 if __name__ == "__main__":
     app.run(debug=True)
