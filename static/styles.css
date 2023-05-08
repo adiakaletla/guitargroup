@@ -21,6 +21,7 @@ background-color: var(--dutch-white);
         font-size: 1.7em;
         font-style:italic;
         padding: 1em 1em;
+        margin-bottom: 0.9em;
         text-align: center;
         background-color: var(--chamoisee);
         color: rgb(255,255,255);
@@ -160,8 +161,8 @@ h3{
 
 .schedule-table{
     text-align: center;
-    margin: 2em;
-    background-color: var(--dutch-white);
+    margin: 1em;
+    background-color: white;
     font-size: 1.5em;
 }
 .table{
