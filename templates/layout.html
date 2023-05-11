@@ -32,10 +32,15 @@
           <a class="nav-link" href="{{ url_for('index') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('learn') }}">Learn</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{{ url_for('schedule') }}">Schedule</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{ url_for('learn') }}" role="button" data-bs-toggle="dropdown">Learn</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{{ url_for('learn') }}#introduction">Introduction</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('learn') }}#anatomyofguitar">Anatomy of Guitar</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('learn') }}#sheetmusic">Sheet Music</a></li>
+          </ul>
         </li>
       </ul>
 
