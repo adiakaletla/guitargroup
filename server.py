@@ -17,6 +17,10 @@ def learn():
 def schedule():
     return render_template("schedule.html")
 
+@app.route('/news')
+def news():
+    return render_template("news.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
