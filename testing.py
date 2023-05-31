@@ -7,9 +7,13 @@ def get_news(db_path):
     join member on news.member_id = member.member_id;
     """
     result = run_search_query_tuples(sql, (), db_path, True)
-    #print(result)
-    first_result = result[0]
-    print(first_result['title'])
+
+    for row in result:
+        for k in row.keys():
+            print(k)
+            print(row[k])
+
+
 
 def get_all(db_path):
     sql = "select * from news"
