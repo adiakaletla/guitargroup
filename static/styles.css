@@ -175,6 +175,16 @@ td,th{
 
 /* --------- */
 
+/* ---- news page ----*/
+.news-box{
+   background-color: white;
+    border-radius: 40px;
+
+}
+
+
+/* --------- */
+
 .footer-content{
     background-color: var(--chamoisee);
     text-align: center;

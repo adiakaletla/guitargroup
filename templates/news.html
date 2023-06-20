@@ -11,29 +11,25 @@ static/images/mainbanner.jpg
 
 {% block content%}
 
-<div class="news p-4 my-4">
-    <h2> Guitar Group sing along! </h2>
-        <div class="subtitle"><h1> Wednesday Morning Tea from 10:30 to 10:40 </h1> </div>
-        <p class="news-text"> Come along to jam out to your favourite song! </p>
-        <div class="news-meta"> Posted by Sophie on Wed 17 May 23 12:10 </div>
-        <div class="news-meta">
-            <a class="btn btn-primary" href="">Update</a>
-            <a class="btn btn-primary" href="">Delete</a>
-        </div>
-</div>
+<div class="container-lg py-sm-5 py-1">
+    <h1>News</h1>
+    <div class="news p=4 my-4 text-end">
+        <a class="btn btn-primary" href="{{ url_for('news_cud', id=0, task='add') }}">Add News</a>
+    </div>
+
 
 {% for row in news %}
 <div class="news p-4 my-4">
     <h2> {{ row['title'] }} </h2>
-        <div class="subtitle"><h1> {{ row['subtitle'] }} </h1> </div>
-        <p class="news-text"> {{ row['content'] }} </p>
-        <div class="news-meta"> member and date </div>
+        <div class="subtitle"> {{ row['subtitle'] }} </div>
+        <p class="news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
+        <div class="news-meta">Posted by {{ row['name'] }} on {{row['newsdate'] | news_date }} </div>
         <div class="news-meta">
-            <a class="btn btn-primary" href="">Update</a>
-            <a class="btn btn-primary" href="">Delete</a>
+            <a class="btn btn-primary" href="{{ url_for('news_cud', id=row['news_id'], task='update') }}">Update</a>
+            <a class="btn btn-primary" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">Delete</a>
         </div>
 </div>
 {% endfor %}
 
-
+</div>
 {% endblock %}
