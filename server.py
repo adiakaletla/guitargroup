@@ -57,10 +57,20 @@ def news_cud():
             result = run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('news'))
         elif data['task'] == 'update':
-            return "<h1> I want to update </h1>"
+            sql = """ select title, subtitle, content from news where news_id=?"""
+            values_tuple = (data['id'],)
+            result = run_search_query_tuples(sql, values_tuple, db_path, True)
+            result = result[0]
+            return render_template("news_cud.html",
+                                   **result,
+                                   id=data['id'],
+                                   task=data['task'])
         elif data['task'] == 'add':
+            # dummy data for testing
             temp = {'title': 'Test Title', 'subtitle': 'Test subtitle', 'content': 'Test Content'}
-            return render_template("news_cud.html", id=0, task=data['task'],
+            return render_template("news_cud.html",
+                                   id=0,
+                                   task=data['task'],
                                    title=temp['title'],
                                    subtitle=temp['subtitle'],
                                    content=temp['content'])
@@ -72,15 +82,21 @@ def news_cud():
         f = request.form
         print(f)
         if data['task'] == 'add':
-        # add the new news entry to the database
-        # member is fixed for now
+            # add the new news entry to the database
+            # member is fixed for now
             sql = """insert into news(title,subtitle,content,newsdate, member_id)
-                    values(?,?,?, datetime('now'),2)"""
-        values_tuple = (f['title'], f['subtitle'], f['content'])
-        result = run_commit_query(sql, values_tuple, db_path)
-        return redirect(url_for('news'))
-    else:
-        return "<h1> Posting for update </h1>"
+                        values(?,?,?, datetime('now', 'localtime'),2)"""
+            values_tuple = (f['title'], f['subtitle'], f['content'],)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('news'))
+        elif data['task'] == 'update':
+            sql = """update news set title=?, subtitle=?, content=?, newsdate=datetime('now') where news_id=?"""
+            values_tuple = (f['title'], f['subtitle'], f['content'], data['id'])
+            result = run_commit_query(sql, values_tuple, db_path)
+            # collect the data from the form and update the database at the sent id
+            return redirect(url_for('news'))
+
+
 
     return render_template("news_cud.html")
 
