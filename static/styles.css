@@ -123,7 +123,7 @@ h3{
         }   
         
         .btn-outline{
-            padding: 0 0.5em;    
+            padding: 0 0.5em;
         }
         
         .btn-outline:hover{
@@ -165,6 +165,7 @@ h3{
     background-color: white;
     font-size: 1.5em;
 }
+
 .table{
     --bs-table-border-color: var(--blood-red);
 }
@@ -178,8 +179,13 @@ td,th{
 /* ---- news page ----*/
 .news-box{
    background-color: white;
-    border-radius: 40px;
+    margin: 5em;
+}
 
+.news-text{
+    font-size: 1em;
+    text-align: center;
+    color: var(--blood-red);
 }
 
 

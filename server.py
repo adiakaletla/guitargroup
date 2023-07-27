@@ -28,6 +28,8 @@ def schedule():
     return render_template("schedule.html")
 
 
+
+
 @app.route('/news')
 def news():
     #query for the page
@@ -38,7 +40,7 @@ def news():
         """
     result = run_search_query_tuples(sql, (), db_path, True)
     print(result)
-    return render_template("news.html", news= result)
+    return render_template("news.html", news=result)
 
 @app.route('/news_cud', methods=['GET', 'POST'])
 def news_cud():

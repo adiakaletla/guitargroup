@@ -6,10 +6,12 @@ Guitar Group
 {% endblock %}
 
 {% block banner%}
-static/images/mainbanner.jpg
+static/images/newsbanner.jpg
 {% endblock %}
 
 {% block content%}
+<div class="news-box">
+<div class="news-text">
 
 <div class="container-lg py-sm-5 py-1">
     <h1>News</h1>
@@ -29,7 +31,10 @@ static/images/mainbanner.jpg
             <a class="btn btn-primary" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">Delete</a>
         </div>
 </div>
+
 {% endfor %}
 
+</div>
+</div>
 </div>
 {% endblock %}
