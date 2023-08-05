@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+
+{% block title%}
+Guitar Group
+{% endblock %}
+
+{% block banner%}
+static/images/mainbanner.jpg
+{% endblock %}
+
+{% block content%}
+
+<script>
+    function SubmitRecord() {
+        output1.innerHTML = email.value + " " +  firstname.value + " " + lastname.value + " " + pwd.value;
+    }
+</script>
+
+<div class="col-lg-6">
+<form id="signup" class="form-container" action="">
+
+    <h2> Sign Up </h2>
+
+                <div class="mb-3 mt-3">
+                    <label class="form-label">First Name:</label>
+                    <input class="form-control" id="firstname" placeholder="Enter first name">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Last Name:</label>
+                    <input class="form-control" id="lastname" placeholder="Enter last name">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                </div>
+                <div class="form-check mb-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                    </label>
+                </div>
+                    <button type="submit" class="btn btn-primary" onclick="SubmitRecord()">Submit</button>
+                    <h2 id="output1"></h2>
+
+    </form>
+   </div>
+{% endblock %}
