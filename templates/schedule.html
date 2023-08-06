@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 
-
 {% block title%}
 Schedule
 {% endblock %}
@@ -10,6 +9,8 @@ static/images/schedulebanner.jpg
 {% endblock %}
 
 {% block content%}
+
+
 
 <h1> What's coming up? </h1>
 
@@ -40,6 +41,37 @@ static/images/schedulebanner.jpg
     </div>
 </div>
 
+
+<div class="schedule-box">
+<div class="schedule-text">
+
+<div class="container-lg py-sm-5 py-1">
+    <h1>Schedule</h1>
+    <div class="schedule p=4 my-4 text-end">
+        <a class="btn btn-primary" style="visibility: hidden" href="{{ url_for('schedule_cud', id=0, task='add') }}">Add Event</a>
+    </div>
+
+
+{% for row in schedule %}
+<div class="schedule p-4 my-4">
+    <h2> {{ row['event_name'] }} </h2>
+        <div class="event_name"> {{ row['event_name'] }} </div>
+        <p class="location"> {{ row['location'] | replace("\n", "<br>") | safe}} </p>
+        <p class="date_time"> {{ row['date_time'] | replace("\n", "<br>") | safe}} </p>
+        <p class="notes"> {{ row['notes'] | replace("\n", "<br>") | safe}} </p>
+        <div class="news-meta">
+            <a class="btn btn-primary" style="visibility: hidden" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='update') }}">Update</a>
+            <a class="btn btn-primary" style="visibility: hidden" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='delete') }}">Delete</a>
+        </div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+    <!--
 
 <h1> Schedule of Events </h1>
 
@@ -115,5 +147,5 @@ static/images/schedulebanner.jpg
     </tbody>
   </table>
 </div>
+ <-->
 
-{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+
+{% block title%}
+Schedule
+{% endblock %}
+
+{% block banner%}
+static/images/mainbanner.jpg
+{% endblock %}
+
+{% block content%}
+
+<div class="container-lg py-sm-5 py-1">
+
+  <div class="schedule p=4 my-4">
+    <h2>Please enter/update your Event Name</h2>
+    <form action="{{url_for('schedule_cud', id=id, task=task)}}" method="POST">
+      <div>
+        <label for="event_name" class="form=label">Event Name</label>
+        <input type="text" class="form-control" id="event_name" name="event_name" placeholder="" value="{{event_name}}" required>
+      </div>
+      <div>
+        <label for="location" class="form=label">Location</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{location}}" required>
+      </div>
+      <div>
+        <label for="date_time" class="form=label">Date and Time </label>
+        <textarea class="form-control" id="date_time" name="date_time" rows="7" required> {{date_time}} </textarea>
+      </div>
+      <div>
+        <label for="notes" class="form=label">Notes</label>
+        <textarea class="form-control" id="notes" name="notes" rows="7" required> {{notes}} </textarea>
+      </div>
+      <div class="text-end">
+        <button type="reset" class="btn btn-primary">Reset</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

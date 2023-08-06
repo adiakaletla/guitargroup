@@ -54,7 +54,13 @@
         </li>
       </ul>
 
-<div class="ms-auto"><a class="nav-link btn btn-outline" href="{{ url_for('index') }}#loginform"> Login </a></div>
+
+    {% if session %}
+        <div id="logout" class="ms-auto"><a class="nav-link btn btn-outline" href="{{ url_for('login') }}#login"> Logout </a></div>
+        <div class="session">  {{session['name']}} is logged in and their authorisation is {{session['auth']}}</div>
+    {% else %}}
+        <div id="login" class="ms-auto"><a class="nav-link btn btn-outline" href="{{ url_for('login') }}#login"> Login </a></div>
+    {% endif %}
 
     </div>
 

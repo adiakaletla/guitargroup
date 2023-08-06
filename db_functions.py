@@ -3,7 +3,7 @@ import csv
 import string #for strip
 
 
-def run_commit_query(sql_query,values_tuple, file_path):
+def run_commit_query(sql_query, values_tuple, file_path):
     """Run a query that makes a change to the database
     :param (str) sql_query: str
     :param (tuple) values_tuple: tuple (can be empty)
@@ -38,7 +38,7 @@ def run_commit_query(sql_query,values_tuple, file_path):
     return True
 
 
-def run_search_query_tuples(sql_query,values_tuple, file_path, rowfactory=False):
+def run_search_query_tuples(sql_query, values_tuple, file_path, rowfactory=False):
     """Run a query
     :param (str) sql_query: str
     :param (tuple) values_tuple: tuple (can be empty)
