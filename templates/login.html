@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 
-
 {% block title%}
 Guitar Group
 {% endblock %}
@@ -11,33 +10,25 @@ static/images/mainbanner.jpg
 
 {% block content%}
 
-<script>
-    function SubmitRecord() {
-      /*  output1.innerHTML = firstname.value + " " + lastname.value + " " + email.value + " " + pwd.value;
-        insert into member( first_name, last_name, email, password, authorisation)
-        values( firstname.value, lastname.value, email.value, pwd.value, 0 );*/
-    }
-</script>
-
-    <div class="col-lg-6">
-        <h2> Log in </h2>
-<!--      <form id="login" class="form-container" action=""> */-->
+    <!--suppress ALL -->
+<div class="col-lg-6">
+        <h2> Login </h2>
         <div class="alert"> {{error}} </div>
         <form id = "login" class="form-container" action="{{url_for('login')}}" method="POST">
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email", value="{{email}}" required>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{email}}" required>
                 </div>
                 <div class="mb-3">
                     <label for="pswd" class="form-label">Password:</label>
-                    <input type="password" class="form-control" id="pswd" placeholder="Enter password" name="pswd", value="{{pwd}}" required>
+                    <input type="password" class="form-control" id="pswd" placeholder="Enter password" name="pswd" value="{{pwd}}" required>
                 </div>
-                <div class="form-check mb-3">
+                <!--div class="form-check mb-3">
                     <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" name="remember"> Remember me
                     </label>
-                </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div-->
+                <button type="submit" class="btn btn-primary"> Submit </button>
                 <h2 id="output"></h2>
          </form>
     </div>

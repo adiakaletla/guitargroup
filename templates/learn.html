@@ -10,8 +10,9 @@ static/images/learnbanner.jpg
 {% endblock %}
 
 {% block content%}
-<introduction id="introduction" action="">
-</introduction>
+<!--suppress ALL -->
+<form id="introduction" action="">
+</form>
 
 <h1> Want to learn the basics? </h1>
 
@@ -22,7 +23,7 @@ static/images/learnbanner.jpg
 <div class="container-lg">
     <div class="row align-items-center px-5 py-3">
         <div class="col-lg-6">
-            <img class="img-fluid part-img" src="static/images/penny.jpg">
+            <img class="img-fluid part-img" src="static/images/penny.jpg" alt="">
         </div>
         <div class="col-lg-6">
             <p class="body-text"> There is no greater experience than learning to play an instrument, regardless of age. Unfortunately, even though many people try to learn the guitar, most beginners quit after just a few months. <br> <br> At guitar group, we take care to adapt to the student and cover every topic they would like to learn about, even the very fundamentals like the guitar's anatomy. Before attending guitar group, check out the fundamentals listed below to get a general sense of the guitar, and then feel free to practise them at home. </p>
@@ -30,8 +31,8 @@ static/images/learnbanner.jpg
     </div>
 </div>
 
-<anatomyofguitar id="anatomyofguitar" action="">
-</anatomyofguitar>
+<form id="anatomyofguitar" action="">
+</form>
 
 <h3> Anatomy of the guitar </h3>
 
@@ -43,20 +44,19 @@ static/images/learnbanner.jpg
         </div>
         <div class="col-lg-6">
 
-<div class="carousel-container center">
-
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-container center">
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
   <!-- Indicators/dots -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
-  </div>
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+    </div>
 
-  <!-- The slideshow/carousel -->
+    <!-- The slideshow/carousel -->
 
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -91,13 +91,13 @@ static/images/learnbanner.jpg
 </div>
 
 <div class=quote_container>
-<p class="quote"> Sheet Music </p>
+    <p class="quote"> Sheet Music </p>
 </div>
 
- <img class="img-fluid part-img" src="static/images/sheetmusic1.jpg">
+<img class="img-fluid part-img" src="static/images/sheetmusic1.jpg" alt="">
 
 
-<sheetmusic id="sheetmusic" action="">
-</sheetmusic>
+<form id="sheetmusic" action="">
+</form>
 
 {% endblock %}

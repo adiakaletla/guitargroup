@@ -3,6 +3,7 @@
 drop table if exists news;
 drop table if exists member;
 drop table if exists schedule;
+drop table if exists comments;
 
 /* create tables */
 
@@ -25,6 +26,16 @@ create table news(
     foreign key(member_id) references member(member_id)
 );
 
+create table comments(
+   comment_id integer primary key autoincrement not null,
+   comment text not null,
+   comment_date date not null,
+   commenter_id integer,
+   news_tag_id integer,
+   foreign key (commenter_id) references member(member_id),
+   foreign key (news_tag_id) references news(news_id)
+);
+
 create table schedule(
     schedule_id integer primary key autoincrement not null,
     event_name text not null,
@@ -37,8 +48,7 @@ create table schedule(
 
 /* --------------Insert data into Member table --------------------------------------*/
 
-
- insert into member( first_name, last_name, email, password, authorisation)
+insert into member( first_name, last_name, email, password, authorisation)
         values('Adia','Janice','adiajanice@gmail.com','temp','0');
 
 insert into member( first_name, last_name, email, password, authorisation)
@@ -62,7 +72,15 @@ values('Music Quiz!',
       (select member_id from member where first_name='Abhi' )
       );
 
-/* --------------Insert data into schedule table --------------------------------------*/
+/* --------------Insert into Comments table --------------------------------------*/
+insert into comments(comment, comment_date, commenter_id, news_tag_id)
+values('Why is it held during short morning tea time?',
+      '2023-05-25 14:30:00',
+      (select member_id from member where first_name='Abhi'),
+       1
+      );
+
+/* --------------Insert data into Schedule table --------------------------------------*/
 
 insert into schedule(event_name,location,date_time, notes , member_id)
       values ('Guitar Session', 'Marsden Room 12', '2023-05-17 12:10:00', 'Bring your guitar',

@@ -64,9 +64,6 @@ h3{
     margin: 0.3em;
 }
 
-/* --------- */
-
-
 /* ---- layout ----*/
 
 .container-fluid{
@@ -80,7 +77,7 @@ h3{
 }
 
 .container-lg2{
-    background-color:rgb(255,255,255);
+    background-color:var(--chamoisee);
     overflow: auto;
 }
 
@@ -130,9 +127,6 @@ h3{
         background-color:var(--blood-red);
         }
 
-
-/* --------- */
-
 /* ---- carousel ----*/
 
 .carousel-container{
@@ -178,7 +172,7 @@ td,th{
 
 /* ---- news page ----*/
 .news-box{
-   background-color: white;
+    background-color: white;
     margin: 5em;
 }
 

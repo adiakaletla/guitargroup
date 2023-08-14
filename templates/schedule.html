@@ -10,21 +10,20 @@ static/images/schedulebanner.jpg
 
 {% block content%}
 
-
-
+<!--suppress ALL -->
 <h1> What's coming up? </h1>
 
 <div class=quote_container>
-<p class="quote"> “The beautiful thing about learning is nobody can take it away from you.” </p>
+    <p class="quote"> “The beautiful thing about learning is nobody can take it away from you.” </p>
 </div>
 
 <div class="container-lg">
     <div class="row align-items-center px-5 py-3">
         <div class="col-lg-6">
-            <img class="img-fluid part-img" src="static/images/showcase1.jpg">
+            <img class="img-fluid part-img" src="static/images/showcase1.jpg" alt="1">
         </div>
         <div class="col-lg-6">
-            <p class="body-text"> On this page, you can find information on all sorts of events to do with Guitar at Marsden. Guitar practices are held every Wednesday Lunch time in the Music Room at 12:50 pm unless stated otherwise. The main event that Guitar Group is working towards is Showcase. </p>
+            <p class="body-text"> On this page, you can find information on all sorts of events to do with the Guitar Group at Marsden. Guitar practices are held every Wednesday lunchtime in the Music Room at 12:50pm unless stated otherwise. The main event that the Guitar Group is working towards is Showcase. </p>
         </div>
     </div>
 </div>
@@ -36,42 +35,48 @@ static/images/schedulebanner.jpg
             <p class="body-text"> Showcase is an event held at Samuel Marsden which allows students to ‘showcase’ their talent. They perform a piece or two with their chosen instrumental group in front of an audience of around 200 people. This includes their fellow musicians, teachers, students, and parents. It is a great opportunity for students to get in front of a crowd and learn the art of performance.</p>
         </div>
         <div class="col-lg-6">
-            <img class="img-fluid part-img" src="static/images/showcase2.jpg">
+            <img class="img-fluid part-img" src="static/images/showcase2.jpg" alt="2">
         </div>
     </div>
 </div>
 
 
 <div class="schedule-box">
-<div class="schedule-text">
+    <div class="schedule-text">
 
-<div class="container-lg py-sm-5 py-1">
-    <h1>Schedule</h1>
-    <div class="schedule p=4 my-4 text-end">
-        <a class="btn btn-primary" style="visibility: hidden" href="{{ url_for('schedule_cud', id=0, task='add') }}">Add Event</a>
-    </div>
+        <div class="container-lg py-sm-5 py-1">
+            <h1>Schedule</h1>
 
+            {% if session['auth'] == 0 %}
+                <div class="schedule p-4 my-4 text-end">
+                    <a class="btn btn-primary" href="{{ url_for('schedule_cud', id=0, task='add') }}">Add Event</a>
+                </div>
+            {% endif %}
 
-{% for row in schedule %}
-<div class="schedule p-4 my-4">
-    <h2> {{ row['event_name'] }} </h2>
-        <div class="event_name"> {{ row['event_name'] }} </div>
-        <p class="location"> {{ row['location'] | replace("\n", "<br>") | safe}} </p>
-        <p class="date_time"> {{ row['date_time'] | replace("\n", "<br>") | safe}} </p>
-        <p class="notes"> {{ row['notes'] | replace("\n", "<br>") | safe}} </p>
-        <div class="news-meta">
-            <a class="btn btn-primary" style="visibility: hidden" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='update') }}">Update</a>
-            <a class="btn btn-primary" style="visibility: hidden" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='delete') }}">Delete</a>
+            {% for row in schedule %}
+                <div class="container-lg2 p-4 my-4">
+                    <h2> {{ row['event_name'] }} </h2>
+                    <!--div class="event_name"> {{ row['event_name'] }} </div-->
+                    <p class="location"> {{ row['location'] | replace("\n", "<br>") | safe}} </p>
+                    <p class="date_time"> {{ row['date_time'] | replace("\n", "<br>") | safe}} </p>
+                    <p class="notes"> {{ row['notes'] | replace("\n", "<br>") | safe}} </p>
+
+                    {% if session['auth'] == 0 %}
+                        <div class="news-meta">
+                            <a class="btn btn-primary" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='update') }}">Update</a>
+                            <a class="btn btn-primary" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='delete') }}">Delete</a>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
         </div>
-{% endfor %}
-</div>
-</div>
-</div>
+    </div>
 </div>
 
 {% endblock %}
 
-    <!--
+<!--
 
 <h1> Schedule of Events </h1>
 
@@ -110,21 +115,21 @@ static/images/schedulebanner.jpg
       </tr>
       <tr>
         <td>17.5.23</td>
-        <td>Show Case preperation</td>
+        <td>Show Case preparation</td>
         <td>Music Room</td>
           <td>12:45 pm </td>
           <td>Cancelled due to colour run</td>
       </tr>
       <tr>
         <td>24.5.23</td>
-        <td>Show Case preperation</td>
+        <td>Show Case preparation</td>
         <td>Music Room</td>
           <td>12:45 pm </td>
            <td>  </td>
       </tr>
       <tr>
         <td>31.5.23</td>
-        <td>Show Case preperation</td>
+        <td>Show Case preparation</td>
         <td>Music Room</td>
           <td>12:45 pm </td>
            <td>  </td>
