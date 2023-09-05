@@ -6,7 +6,7 @@ Schedule
 {% endblock %}
 
 {% block banner%}
-static/images/mainbanner.jpg
+static/images/schedulebanner.jpg
 {% endblock %}
 
 {% block content%}
@@ -15,7 +15,7 @@ static/images/mainbanner.jpg
 <div class="container-lg py-sm-5 py-1">
 
   <div class="schedule p=4 my-4">
-    <h2>Please enter/update your Event Name</h2>
+    <h2>Please enter/ update your Event Information</h2>
     <form action="{{url_for('schedule_cud', id=id, task=task)}}" method="POST">
       <div>
         <label for="event_name" class="form=label">Event Name</label>

@@ -29,6 +29,7 @@ static/images/schedulebanner.jpg
 </div>
 
 <h1> What is Showcase? </h1>
+
 <div class="container-lg">
     <div class="row align-items-center px-5 py-3">
         <div class="col-lg-6">
@@ -40,22 +41,18 @@ static/images/schedulebanner.jpg
     </div>
 </div>
 
-
-<div class="schedule-box">
-    <div class="schedule-text">
-
-        <div class="container-lg py-sm-5 py-1">
-            <h1>Schedule</h1>
+<h1>Schedule of all Events</h1>
 
             {% if session['auth'] == 0 %}
                 <div class="schedule p-4 my-4 text-end">
-                    <a class="btn btn-primary" href="{{ url_for('schedule_cud', id=0, task='add') }}">Add Event</a>
+                    <a class="btn btn-secondary" href="{{ url_for('schedule_cud', id=0, task='add') }}">Add Event</a>
                 </div>
             {% endif %}
 
+<div class="schedule-box">
             {% for row in schedule %}
-                <div class="container-lg2 p-4 my-4">
-                    <h2> {{ row['event_name'] }} </h2>
+                <div class="container-lg2 p-4 my-4" style="width:1300px;margin:auto">
+                    <h2 class="schedule-box"> {{ row['event_name'] }} </h2>
                     <!--div class="event_name"> {{ row['event_name'] }} </div-->
                     <p class="location"> {{ row['location'] | replace("\n", "<br>") | safe}} </p>
                     <p class="date_time"> {{ row['date_time'] | replace("\n", "<br>") | safe}} </p>
@@ -63,15 +60,12 @@ static/images/schedulebanner.jpg
 
                     {% if session['auth'] == 0 %}
                         <div class="news-meta">
-                            <a class="btn btn-primary" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='update') }}">Update</a>
-                            <a class="btn btn-primary" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='delete') }}">Delete</a>
+                            <a class="btn btn-secondary" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='update') }}">Update</a>
+                            <a class="btn btn-secondary" href="{{ url_for('schedule_cud', id=row['schedule_id'], task='delete') }}">Delete</a>
                         </div>
                     {% endif %}
                 </div>
             {% endfor %}
-
-        </div>
-    </div>
 </div>
 
 {% endblock %}

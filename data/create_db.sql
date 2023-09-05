@@ -26,24 +26,26 @@ create table news(
     foreign key(member_id) references member(member_id)
 );
 
+
 create table comments(
-   comment_id integer primary key autoincrement not null,
-   comment text not null,
-   comment_date date not null,
-   commenter_id integer,
-   news_tag_id integer,
-   foreign key (commenter_id) references member(member_id),
-   foreign key (news_tag_id) references news(news_id)
+comment_id integer primary key autoincrement not null,
+comment text not null,
+comment_date date not null,
+commenter_id integer,
+news_tag_id integer,
+foreign key (commenter_id) references member(member_id),
+foreign key (news_tag_id) references news(news_id)
 );
 
+
 create table schedule(
-    schedule_id integer primary key autoincrement not null,
-    event_name text not null,
-    location text not null,
-    date_time date not null,
-    notes text,
-    member_id integer,
-    foreign key(member_id) references member(member_id)
+schedule_id integer primary key autoincrement not null,
+event_name text not null,
+location text not null,
+date_time date not null,
+notes text,
+member_id integer,
+foreign key(member_id) references member(member_id)
 );
 
 /* --------------Insert data into Member table --------------------------------------*/
@@ -55,7 +57,6 @@ insert into member( first_name, last_name, email, password, authorisation)
         values('Abhi','Joan','abhijoan@gmail.com','temp','1');
 
 /* --------------Insert into News table --------------------------------------*/
-
 insert into news(title, subtitle, content, newsdate, member_id)
 values('Guitar Group sing along!',
       'Wednesday Morning Tea from 10:30 to 10:40',
@@ -74,7 +75,7 @@ values('Music Quiz!',
 
 /* --------------Insert into Comments table --------------------------------------*/
 insert into comments(comment, comment_date, commenter_id, news_tag_id)
-values('Why is it held during short morning tea time?',
+values('Sounds cool! Can I bring a friend?',
       '2023-05-25 14:30:00',
       (select member_id from member where first_name='Abhi'),
        1
@@ -83,11 +84,11 @@ values('Why is it held during short morning tea time?',
 /* --------------Insert data into Schedule table --------------------------------------*/
 
 insert into schedule(event_name,location,date_time, notes , member_id)
-      values ('Guitar Session', 'Marsden Room 12', '2023-05-17 12:10:00', 'Bring your guitar',
+      values ('Guitar Session', 'Music Room', '2023-05-17 12:10:00', 'Bring a capo along.',
               (select member_id from member where first_name='Adia' )
       );
 
 insert into schedule(event_name,location,date_time, notes, member_id )
-      values ('Audition Session', 'Marsden Room 34', '2023-08-17 12:10:00', 'Guitars will be available',
+      values ('Audition Session', 'Lilburn Room', '2023-08-17 12:10:00', 'Guitars will be available.',
               (select member_id from member where first_name='Abhi' )
       );

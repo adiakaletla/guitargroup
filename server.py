@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from db_functions import run_search_query_tuples, run_commit_query
 from datetime import datetime
 
@@ -57,7 +57,7 @@ def schedule_cud():
             run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('schedule'))
         elif data['task'] == 'update':
-            sql = """ select event_name, location, date_time,notes from schedule where schedule_id=?"""
+            sql = """ select event_name, location, date_time, notes from schedule where schedule_id=?"""
             values_tuple = (data['id'],)
             result = run_search_query_tuples(sql, values_tuple, db_path, True)
             result = result[0]
@@ -67,7 +67,8 @@ def schedule_cud():
                                    task=data['task'])
         elif data['task'] == 'add':
             # dummy data for testing
-            temp = {'event_name': 'Test event', 'location': 'Test location', 'date_time': '2023-05-17 12:10:00.000',
+            now = datetime.now()
+            temp = {'event_name': 'Test event', 'location': 'Test location', 'date_time': now.strftime("%Y/%m/%d, %H:%M:%S"),
                     'notes': 'Test notes'}
             return render_template("schedule_cud.html",
                                    id=0,
@@ -86,15 +87,15 @@ def schedule_cud():
         if data['task'] == 'add':
             # add the new news entry to the database
             mem_id = session['id']
-            sql = """insert into schedule(event_name,location,date_time,notes, member_id)
-                        values(?,?,?, datetime('now', 'localtime'),?)"""
-            values_tuple = (f['event_name'], f['location'], f['notes'], mem_id)
+            sql = """insert into schedule(event_name, location, date_time, notes, member_id)
+                        values(?,?,?,?,?)"""
+            values_tuple = (f['event_name'], f['location'], f['date_time'], f['notes'], mem_id)
             run_commit_query(sql, values_tuple, db_path)
             return redirect(url_for('schedule'))
         elif data['task'] == 'update':
-            sql = """update schedule set event_name=?, location=?, date_time=datetime('now'), notes=? 
+            sql = """update schedule set event_name=?, location=?, date_time=?, notes=? 
                         where schedule_id=?"""
-            values_tuple = (f['event_name'], f['location'], f['notes'], data['id'])
+            values_tuple = (f['event_name'], f['location'], f['date_time'], f['notes'], data['id'])
             run_commit_query(sql, values_tuple, db_path)
             # collect the data from the form and update the database at the id
             return redirect(url_for('schedule'))
@@ -146,7 +147,7 @@ def login():
         values_tuple = (f['email'].lower(),)
         result = run_search_query_tuples(sql, values_tuple, db_path, True)
         print(result)
-        error = "User ID does not exist.  Please sign up first."
+        error = "UserID does not exist.  Please sign up first."
         if result:
             result = result[0]
             if result['password'] == f['pswd']:
@@ -157,6 +158,7 @@ def login():
                 print(session)
                 return redirect(url_for('index'))
             else:
+                error = "UserID or password incorrect.  Please try again."
                 return render_template("login.html", email=f['email'], password=f['pswd'], error=error)
         else:
             return render_template("login.html", email=f['email'], password=f['pswd'], error=error)
@@ -198,6 +200,9 @@ def news_cud():
     # have an id and a task key
     if request.method == "GET":
         if data['task'] == 'delete':
+            sql = "delete from comments where news_tag_id = ?"
+            values_tuple = (data['id'],)
+            run_commit_query(sql, values_tuple, db_path)
             sql = "delete from news where news_id = ?"
             values_tuple = (data['id'],)
             run_commit_query(sql, values_tuple, db_path)
@@ -247,6 +252,7 @@ def news_cud():
             run_commit_query(sql, values_tuple, db_path)
             # collect the data from the form and update the database
             return redirect(url_for('news'))
+
         elif data['task'] == 'comment':
             sql = """insert into comments(comment, comment_date, commenter_id, news_tag_id)
                         values(?, datetime('now', 'localtime'), ?, ?)"""
