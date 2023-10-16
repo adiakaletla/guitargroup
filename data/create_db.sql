@@ -54,6 +54,9 @@ insert into member( first_name, last_name, email, password, authorisation)
         values('Adia','Janice','adiajanice@gmail.com','temp','0');
 
 insert into member( first_name, last_name, email, password, authorisation)
+        values('Sophie','McClintock','sophie.mcclintock@marsden.school.nz','temp','0');
+
+insert into member( first_name, last_name, email, password, authorisation)
         values('Abhi','Joan','abhijoan@gmail.com','temp','1');
 
 /* --------------Insert into News table --------------------------------------*/
