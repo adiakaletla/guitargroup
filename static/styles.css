@@ -200,7 +200,8 @@ h3{
     font-size: 1.5em;
 }
 
-.footer-content p:first-child{
+.footer-content h1:first-child{
     font-weight: 600;
     font-size: 1em;
+    color: white;
 }
