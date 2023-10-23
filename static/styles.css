@@ -73,23 +73,6 @@ h3{
 .container-lg{  
     background-color:rgb(255,255,255);
     overflow: auto;
-}
-
-.container-lg2{
-    border: 2px outset lightsalmon;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 600px;
-    overflow: auto;
-}
-
-.comms-container{
-    padding-left: 10px;
-    border: 1px solid grey;
-    width: 500px;
-    overflow: auto;
     border-radius: 10px;
 }
 
@@ -104,7 +87,7 @@ h3{
 }   
 
 .banner_adjust{
-    margin-top: 3.2em;
+    margin-top: 1em;
 }
 
 /* --------- */
@@ -131,11 +114,34 @@ h3{
     color:rgb(250,250,250);
 }
 
+/* ---- buttons ----*/
+
 .btn-outline{
     padding: 0 0.5em;
 }
 
 .btn-outline:hover{
+    background-color:var(--blood-red);
+}
+
+.btn-secondary{
+    background-color:var(--chamoisee);
+}
+
+.btn-secondary:hover{
+    background-color:var(--blood-red);
+}
+
+.add-button{
+    margin-right: 4em;
+}
+
+.btn-primary{
+    background-color:var(--chamoisee);
+    margin-top: 3em;
+}
+
+.btn-primary:hover{
     background-color:var(--blood-red);
 }
 
@@ -152,6 +158,7 @@ h3{
     margin-right: auto;
 }
 
+
 /* --------- */
 
 .form-container{
@@ -164,32 +171,58 @@ h3{
 }
 
 /* ---- schedule page ----*/
+.schedule-container{
+    background-color:rgb(255,255,255);
+    overflow: auto;
+    border: 1px solid var(--blood-red);
+    border-radius: 20px;
+    padding: 1em;
+    margin: 2em;
+}
 
 .schedule-box{
     text-align: center;
     color: var(--blood-red);
+    padding: 0.5em;
 }
 
-/* --------- */
-
-/* ---- news page ----*/
-.news-box{
-    background-color: white;
-    margin: 5em;
-}
-
-.news-text{
-    padding-left: 10px;
-    font-size: 1em;
-    text-align: left;
+.title-box{
+    text-align: center;
     color: var(--blood-red);
 }
 
-.news-meta{
-    // font-size: 2em;
-    font-style: italic;
+/* ---- news page ----*/
+.news-box{
+    text-align: center;
+    color: var(--blood-red);
+    padding: 0.5em;
 }
+
+.news-container {
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    border: 1px solid var(--blood-red);
+    border-radius: 20px;
+    padding: 1em;
+    margin: 2em;
+}
+
+.news-meta{
+    text-align: center;
+    color: var(--blood-red);
+}
+
+.comms-container{
+    background-color: var(--dutch-white);
+    overflow: auto;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 1em;
+    margin: 1em;
+}
+
 /* --------- */
+
 
 .footer-content{
     background-color: var(--chamoisee);

@@ -12,9 +12,10 @@ static/images/schedulebanner.jpg
 {% block content%}
 
 <!--suppress ALL -->
-<div class="container-lg py-sm-5 py-1">
+  <br>
+<div class="container-lg">
 
-  <div class="schedule p=4 my-4">
+  <div class="schedule p-4 my-4">
     <h2>Please enter/ update your Event Information</h2>
     <form action="{{url_for('schedule_cud', id=id, task=task)}}" method="POST">
       <div>

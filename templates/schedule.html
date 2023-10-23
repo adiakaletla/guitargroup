@@ -11,6 +11,7 @@ static/images/schedulebanner.jpg
 {% block content%}
 
 <!--suppress ALL -->
+<div class="container-fluid">
 <h1> What's coming up? </h1>
 
 <div class=quote_container>
@@ -41,18 +42,19 @@ static/images/schedulebanner.jpg
     </div>
 </div>
 
+
 <h1>Schedule of all Events</h1>
 
             {% if session['auth'] == 0 %}
-                <div class="schedule p-4 my-4 text-end">
+                <div class="add-button text-end">
                     <a class="btn btn-secondary" href="{{ url_for('schedule_cud', id=0, task='add') }}">Add Event</a>
                 </div>
             {% endif %}
 
-<div class="schedule-box">
+    <div class="schedule-box">
             {% for row in schedule %}
-                <div class="container-lg2 p-4 my-4" style="width:1300px;margin:auto">
-                    <h2 class="schedule-box"> {{ row['event_name'] }} </h2>
+                <div class="schedule-container">
+                    <h2 class="title-box"> {{ row['event_name'] }} </h2>
                     <!--div class="event_name"> {{ row['event_name'] }} </div-->
                     <p class="location"> {{ row['location'] | replace("\n", "<br>") | safe}} </p>
                     <p class="date_time"> {{ row['date_time'] | replace("\n", "<br>") | safe}} </p>
@@ -66,85 +68,7 @@ static/images/schedulebanner.jpg
                     {% endif %}
                 </div>
             {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
-
-<!--
-
-<h1> Schedule of Events </h1>
-
-<div class="schedule-table">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Date</th>
-          <th> Event </th>
-        <th>Location</th>
-        <th>Time</th>
-          <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>26.4.23</td>
-        <td>Guitar Session</td>
-        <td>Music Room</td>
-          <td>12:50 pm </td>
-            <td>  </td>
-      </tr>
-      <tr>
-        <td>3.5.23</td>
-        <td>Guitar Session</td>
-        <td>Music Room</td>
-          <td>12:50 pm </td>
-          <td>Cancelled</td>
-      </tr>
-      <tr>
-        <td>10.5.23</td>
-        <td>Guitar Session</td>
-        <td>Music Room</td>
-          <td>12:50 pm </td>
-           <td>  </td>
-      </tr>
-      <tr>
-        <td>17.5.23</td>
-        <td>Show Case preparation</td>
-        <td>Music Room</td>
-          <td>12:45 pm </td>
-          <td>Cancelled due to colour run</td>
-      </tr>
-      <tr>
-        <td>24.5.23</td>
-        <td>Show Case preparation</td>
-        <td>Music Room</td>
-          <td>12:45 pm </td>
-           <td>  </td>
-      </tr>
-      <tr>
-        <td>31.5.23</td>
-        <td>Show Case preparation</td>
-        <td>Music Room</td>
-          <td>12:45 pm </td>
-           <td>  </td>
-      </tr>
-      <tr>
-        <td>14.6.23</td>
-        <td>Final Practise </td>
-        <td>Lil Burn Room</td>
-          <td>6:45 pm </td>
-           <td> Bring your own guitar </td>
-      </tr>
-      <tr>
-        <td>14.6.23</td>
-        <td>Show Case</td>
-        <td>Auditorium</td>
-          <td>7:00 pm </td>
-           <td> Bring your own guitar </td>
-      </tr>
-
-    </tbody>
-  </table>
-</div>
- <-->
-

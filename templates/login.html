@@ -11,8 +11,7 @@ static/images/mainbanner.jpg
 {% block content%}
 
     <!--suppress ALL -->
-<div class="col-lg-6">
-        <h2> Login </h2>
+        <h1> Login </h1>
         <div class="alert"> {{error}} </div>
         <form id = "login" class="form-container" action="{{url_for('login')}}" method="POST">
                 <div class="mb-3 mt-3">
@@ -31,6 +30,5 @@ static/images/mainbanner.jpg
                 <button type="submit" class="btn btn-primary"> Submit </button>
                 <h2 id="output"></h2>
          </form>
-    </div>
 
 {% endblock %}

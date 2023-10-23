@@ -11,25 +11,24 @@ static/images/newsbanner.jpg
 {% block content%}
 
 <!--suppress HtmlUnknownTarget -->
-<div class="news-box">
-    <div class="news-text">
 
-        <div class="container-lg py-sm-5 py-1">
-            <h1>What do you need to know?</h1>
+<h1>What do you need to know?</h1>
 
             {% if session['auth'] == 0 %}
-                <div class="news p-4 my-4 text-end">
+                <div class="add-button text-end">
                     <a class="btn btn-secondary" href="{{ url_for('news_cud', id=0, task='add') }}">Add News</a>
                 </div>
             {% endif %}
 
+    <div class="news-box">
             {% for row in news %}
-                <div class="container-lg2">
-                    <h2> {{ row['title'] }} </h2>
-                    <div class="news-meta" style="padding-left: 5px"> Posted by {{ row['first_name'] }} on {{ row['newsdate'] | news_date }} </div>
+                <div class="news-container">
+                    <h2 class="news-meta"> {{ row['title'] }} </h2>
                     <br>
-                    <p class="subtitle" style="padding-left: 10px"> {{ row['subtitle'] }} </p>
-                    <p class="news-text"> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
+                    <div class="news-meta"> - Posted by {{ row['first_name'] }} - {{ row['newsdate'] | news_date }}
+                    <p> {{ row['subtitle'] }} </p>
+                    <p> {{ row['content'] | replace("\n", "<br>") | safe}} </p>
+                    </div>
 
                     <div class="news-meta">
                         {% if session['auth'] == 0 %}
@@ -37,26 +36,22 @@ static/images/newsbanner.jpg
                             <a class="btn btn-secondary" href="{{ url_for('news_cud', id=row['news_id'], task='delete') }}">Delete</a>
                         {% endif %}
                         {% if session %}
-                        <a class="btn btn-secondary" href="{{ url_for('news_cud', id=row['news_id'], task='comment') }}">Comment</a>
+                            <a class="btn btn-secondary" href="{{ url_for('news_cud', id=row['news_id'], task='comment') }}">Comment</a>
                         {% endif %}
                     </div>
 
                     {% for comms in comments %}
                         {% if comms['news_tag_id'] == row['news_id'] %}
                             <br>
-                            <div style="padding-left: 25px">
                             <div class="comms-container">
-                                <p class="news-meta"> Comment by {{ comms['first_name'] }} on {{ comms['comment_date'] | news_date }}</p>
-                                <p class="news-text"> {{ comms['comment'] }}</p>
-                            </div></div>
+                                <p> {{ comms['comment'] }} </p>
+                                <p> ~ Comment by {{ comms['first_name'] }} on {{ comms['comment_date'] | news_date }} ~ </p>
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>
-                <br><br><br>
             {% endfor %}
 
-        </div>
     </div>
-</div>
 
 {% endblock %}

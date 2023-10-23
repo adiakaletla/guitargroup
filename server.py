@@ -5,6 +5,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = "asdfasdfasdf"
 db_path = '/home/adiakaletla/mysite/data/guitargroup_db.sqlite'
+#db_path = 'data/guitargroup_db.sqlite'
 
 
 @app.template_filter()

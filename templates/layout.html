@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!--suppress ALL -->
 <html lang="en">
-ExpiresByType text/html "access plus 1 month"
 
 <head>
     <title> {% block title %}{% endblock %} </title>
@@ -65,14 +64,16 @@ ExpiresByType text/html "access plus 1 month"
             </li>
             </ul>
         {% else %}
-            <a class="nav-link btn btn-outline" href="{{ url_for('signup') }}#signup">Sign Up</a></div>
+    </div>
+
+            <div id="signup" class="ms-auto"><a class="nav-link btn btn-outline" href="{{ url_for('signup') }}#signup">Sign Up</a></div>
             <div id="login" class="ms-auto"><a class="nav-link btn btn-outline" href="{{ url_for('login') }}#login">Log in </a></div>
         {% endif %}
 
     </nav>
 
     <div class=banner_adjust>
-     <img class="img-fluid" src="{% block banner %}{% endblock %}" alt="1">
+        <img class="img-fluid" src="{% block banner %}{% endblock %}" alt="1">
     </div>
  </div>
 
